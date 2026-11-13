@@ -1,0 +1,950 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#062B4D">
+<meta name="description" content="R.FACTOR — Gestão, Tecnologia e Desenvolvimento Empresarial.">
+<title>R.FACTOR | Gestão, Tecnologia e Desenvolvimento Empresarial</title>
+
+<style>
+:root {
+  --navy: #00152D;
+  --blue: #063B70;
+  --blue-light: #07599A;
+  --gold: #D6A642;
+  --gold-light: #F4D58A;
+  --silver: #DCE4EC;
+  --white: #FFFFFF;
+  --light: #F2F6FA;
+  --text: #26384A;
+  --muted: #65778A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+/* CABEÇALHO — AZUL UNIFORME E HARMONIZADO */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: #062B4D;
+  border-bottom: 2px solid var(--gold);
+  box-shadow: 0 3px 12px rgba(0,0,0,.18);
+}
+
+.header-content {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand img {
+  display: block;
+  width: 112px;
+  height: 65px;
+  object-fit: contain;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+nav a {
+  color: var(--silver);
+  font-size: 13px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--gold-light);
+}
+
+/* ABERTURA — IMAGEM ORIGINAL EM TAMANHO PROPORCIONAL */
+
+.hero {
+  width: 100%;
+  background: #00152D;
+  padding: 28px 0;
+  overflow: hidden;
+  scroll-margin-top: 82px;
+}
+
+.hero-art {
+  display: block;
+  width: 88%;
+  max-width: 1050px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* APRESENTAÇÃO ABAIXO DA IMAGEM */
+
+.hero-message {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 65px 20px 75px;
+  color: var(--white);
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      #07599A 0%,
+      #063B70 38%,
+      #00264B 75%,
+      #00152D 100%
+    );
+}
+
+.hero-message::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      130deg,
+      transparent 0%,
+      transparent 48%,
+      rgba(0,174,255,.12) 49%,
+      transparent 50%
+    );
+}
+
+.hero-message-content {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.hero-message h1 {
+  color: var(--white);
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.hero-message h1 span {
+  color: var(--gold-light);
+}
+
+.hero-message p {
+  color: var(--silver);
+  max-width: 720px;
+  margin: 0 auto 30px;
+  font-size: 17px;
+}
+
+/* BOTÕES */
+
+.button {
+  display: inline-block;
+  padding: 14px 27px;
+  background: linear-gradient(
+    135deg,
+    var(--gold-light),
+    var(--gold)
+  );
+  color: #10243A;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: .3s;
+  box-shadow: 0 5px 18px rgba(0,0,0,.2);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.08);
+}
+
+/* SEÇÕES GERAIS */
+
+section:not(.hero) {
+  scroll-margin-top: 100px;
+}
+
+.section {
+  padding: 95px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-title h2 {
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 43px);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-title h2 span {
+  color: var(--blue-light);
+}
+
+.section-title p {
+  color: var(--muted);
+  max-width: 680px;
+  margin: auto;
+}
+
+.section-title .eyebrow {
+  color: #9B752B;
+}
+
+.gold-line {
+  width: 70px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--gold),
+    var(--gold-light)
+  );
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+/* EMPRESA */
+
+.about {
+  background: var(--white);
+}
+
+.about-text {
+  max-width: 870px;
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.about-text strong {
+  color: var(--blue);
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.value {
+  background: var(--light);
+  padding: 28px 22px;
+  border-bottom: 3px solid var(--gold);
+  border-radius: 5px;
+  text-align: center;
+}
+
+.value h3 {
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+
+.value p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* SOLUÇÕES */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid #DCE5ED;
+  border-top: 3px solid var(--gold);
+  padding: 32px;
+  border-radius: 6px;
+  box-shadow: 0 8px 25px rgba(7,28,53,.06);
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(7,28,53,.12);
+  border-top-color: #19A8D0;
+}
+
+.card .number {
+  color: #A27A2B;
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.card h3 {
+  color: var(--blue);
+  font-size: 23px;
+  margin: 12px 0;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.card ul {
+  margin: 16px 0 0 18px;
+  color: #506174;
+  font-size: 13px;
+}
+
+.card li {
+  margin: 7px 0;
+}
+
+.card li::marker {
+  color: var(--gold);
+}
+
+/* METODOLOGIA */
+
+.methodology {
+  background: #E9F0F6;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.step {
+  background: var(--white);
+  border-top: 3px solid var(--blue-light);
+  padding: 23px 16px;
+  border-radius: 4px;
+  box-shadow: 0 5px 18px rgba(7,28,53,.05);
+}
+
+.step strong {
+  display: block;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* DIFERENCIAIS */
+
+.differentials {
+  background: var(--white);
+}
+
+/* SUPPLY */
+
+.supply {
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      #07599A 0%,
+      #063B70 40%,
+      #00264B 75%,
+      #00152D 100%
+    );
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.supply-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.supply-content h2 {
+  font-size: clamp(35px, 5vw, 50px);
+}
+
+.supply-content h2 span {
+  color: var(--gold-light);
+}
+
+.supply-content p {
+  color: var(--silver);
+  margin: 18px 0;
+}
+
+/* CONTATO */
+
+.contact {
+  background: var(--light);
+  text-align: center;
+}
+
+.contact h2 {
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 43px);
+}
+
+.contact h2 span {
+  color: var(--blue-light);
+}
+
+.contact p {
+  color: var(--muted);
+  margin: 15px auto 28px;
+  max-width: 650px;
+}
+
+.contact-details {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.contact-details p {
+  margin: 0;
+}
+
+.contact-details a {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.contact-details a:hover {
+  color: var(--blue-light);
+  text-decoration: underline;
+}
+
+/* RODAPÉ */
+
+footer {
+  background-color: #062B4D;
+  border-top: 2px solid var(--gold);
+  padding: 32px 0;
+  text-align: center;
+  color: var(--silver);
+  font-size: 12px;
+}
+
+footer strong {
+  color: var(--gold-light);
+  letter-spacing: 2px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 850px) {
+  .header-content {
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 8px;
+  }
+
+  .brand img {
+    width: 105px;
+    height: 58px;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero-art {
+    width: 92%;
+  }
+
+  .hero-message {
+    padding: 55px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .cards,
+  .values,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 18px 0;
+  }
+
+  .hero-art {
+    width: 96%;
+  }
+
+  .hero-message {
+    padding: 45px 20px 55px;
+  }
+
+  .hero-message h1 {
+    font-size: clamp(32px, 8vw, 43px);
+  }
+
+  .hero-message p {
+    font-size: 14px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 11px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container header-content">
+
+    <a class="brand" href="#inicio">
+      <img src="Logo.png" alt="R.FACTOR">
+    </a>
+
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#solucoes">Soluções</a>
+      <a href="#metodologia">Metodologia</a>
+      <a href="#supply">Supply</a>
+      <a href="#contato">Contato</a>
+    </nav>
+
+  </div>
+</header>
+
+<main>
+
+<!-- IMAGEM PRINCIPAL CENTRALIZADA E PROPORCIONAL -->
+
+<section class="hero" id="inicio">
+  <img
+    class="hero-art"
+    src="Logo.png"
+    alt="R.FACTOR — Gestão, Tecnologia e Desenvolvimento Empresarial"
+  >
+</section>
+
+<!-- APRESENTAÇÃO -->
+
+<section class="hero-message">
+  <div class="hero-message-content">
+
+    <div class="eyebrow">
+      Gestão • Tecnologia • Desenvolvimento Empresarial
+    </div>
+
+    <h1>
+      Estratégia que <span>transforma negócios.</span>
+    </h1>
+
+    <p>
+      Integramos gestão, processos, tecnologia e desenvolvimento empresarial
+      para transformar desafios em oportunidades e resultados sustentáveis.
+    </p>
+
+    <a class="button" href="#solucoes">
+      Conheça nossas soluções →
+    </a>
+
+  </div>
+</section>
+
+<!-- EMPRESA -->
+
+<section class="section about" id="empresa">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Quem somos</div>
+      <h2>Uma nova forma de <span>desenvolver negócios.</span></h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="about-text">
+      <p>
+        A <strong>R.FACTOR</strong> é uma empresa de soluções integradas
+        em gestão, tecnologia e desenvolvimento empresarial.
+        Atuamos conectando estratégia e execução para melhorar processos,
+        fortalecer operações e criar novas oportunidades de crescimento.
+      </p>
+
+      <br>
+
+      <p>
+        Nosso trabalho parte do entendimento da realidade de cada negócio.
+        Identificamos oportunidades, estruturamos soluções e acompanhamos
+        sua evolução com método, responsabilidade e visão de longo prazo.
+      </p>
+    </div>
+
+    <div class="values">
+
+      <div class="value">
+        <h3>Missão</h3>
+        <p>
+          Desenvolver soluções que aprimorem a gestão e impulsionem
+          resultados empresariais.
+        </p>
+      </div>
+
+      <div class="value">
+        <h3>Visão</h3>
+        <p>
+          Ser referência em soluções integradas para o desenvolvimento
+          de negócios.
+        </p>
+      </div>
+
+      <div class="value">
+        <h3>Valores</h3>
+        <p>
+          Ética, compromisso, inovação, transparência e resultados sustentáveis.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÕES -->
+
+<section class="section" id="solucoes">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Nosso ecossistema</div>
+      <h2>Soluções que trabalham <span>em conjunto.</span></h2>
+      <p>
+        Frentes complementares para atender diferentes necessidades empresariais.
+      </p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="number">01 / GESTÃO</div>
+        <h3>R.FACTOR SUPPLY</h3>
+        <p>
+          Estruturação e gestão de compras, suprimentos e relacionamento
+          com fornecedores.
+        </p>
+        <ul>
+          <li>Gestão estratégica de compras</li>
+          <li>Negociação e desenvolvimento de fornecedores</li>
+          <li>Planejamento e acompanhamento de pedidos</li>
+          <li>Indicadores e controles gerenciais</li>
+          <li>Organização de processos de suprimentos</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="number">02 / TECNOLOGIA</div>
+        <h3>R.FACTOR TECNOLOGIA</h3>
+        <p>
+          Soluções digitais para conectar informações, pessoas e processos.
+        </p>
+        <ul>
+          <li>Plataformas digitais</li>
+          <li>Automação de processos</li>
+          <li>Soluções QR Code e NFC</li>
+          <li>Gestão e integração de informações</li>
+          <li>Desenvolvimento de ferramentas digitais</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="number">03 / NEGÓCIOS</div>
+        <h3>R.FACTOR COMERCIAL</h3>
+        <p>
+          Desenvolvimento de oportunidades e conexões comerciais.
+        </p>
+        <ul>
+          <li>Representação comercial</li>
+          <li>Prospecção e desenvolvimento de clientes</li>
+          <li>Estratégias de relacionamento</li>
+          <li>Desenvolvimento de canais de venda</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="number">04 / CONHECIMENTO</div>
+        <h3>R.FACTOR ACADEMY</h3>
+        <p>
+          Compartilhamento de conhecimento e desenvolvimento profissional.
+        </p>
+        <ul>
+          <li>Treinamentos empresariais</li>
+          <li>Capacitação de equipes</li>
+          <li>Cursos e conteúdos digitais</li>
+          <li>Palestras e workshops</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA -->
+
+<section class="section methodology" id="metodologia">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Como trabalhamos</div>
+      <h2>Da análise à <span>transformação.</span></h2>
+      <p>
+        Uma metodologia organizada, construída de acordo com a realidade
+        de cada empresa.
+      </p>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="steps">
+
+      <div class="step">
+        <strong>01. Diagnóstico</strong>
+        <p>Entendimento do cenário, necessidades e oportunidades.</p>
+      </div>
+
+      <div class="step">
+        <strong>02. Estratégia</strong>
+        <p>Definição de prioridades, metas e plano de ação.</p>
+      </div>
+
+      <div class="step">
+        <strong>03. Implementação</strong>
+        <p>Organização e execução das soluções acordadas.</p>
+      </div>
+
+      <div class="step">
+        <strong>04. Gestão</strong>
+        <p>Acompanhamento de processos e indicadores.</p>
+      </div>
+
+      <div class="step">
+        <strong>05. Evolução</strong>
+        <p>Avaliação de resultados e melhoria contínua.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+
+<section class="section differentials">
+  <div class="container">
+
+    <div class="section-title">
+      <div class="eyebrow">Por que R.FACTOR</div>
+      <h2>Experiência conectada à <span>visão de futuro.</span></h2>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <h3>Experiência prática</h3>
+        <p>
+          Vivência em gestão, compras, negociação e desenvolvimento
+          de fornecedores.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Visão integrada</h3>
+        <p>
+          Conexão entre gestão, processos, tecnologia e desenvolvimento comercial.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Soluções personalizadas</h3>
+        <p>
+          Projetos estruturados conforme as necessidades e os objetivos
+          de cada empresa.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Foco em evolução</h3>
+        <p>
+          Organização, acompanhamento e melhoria contínua como parte do trabalho.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SUPPLY -->
+
+<section class="section supply" id="supply">
+  <div class="container supply-content">
+
+    <div class="eyebrow">Nossa primeira frente de atuação</div>
+
+    <h2>R.FACTOR <span>SUPPLY</span></h2>
+
+    <div class="gold-line"></div>
+
+    <p>
+      Gestão estratégica de compras e suprimentos para empresas que buscam
+      mais organização, controle, previsibilidade e eficiência operacional.
+    </p>
+
+    <p>
+      Estruturamos processos, qualificamos fornecedores, apoiamos negociações
+      e desenvolvemos indicadores para uma gestão mais consistente.
+    </p>
+
+    <a class="button" href="#contato">
+      Solicitar apresentação comercial
+    </a>
+
+  </div>
+</section>
+
+<!-- CONTATO -->
+
+<section class="section contact" id="contato">
+  <div class="container">
+
+    <div class="eyebrow">Vamos conversar?</div>
+
+    <h2>
+      O próximo passo do seu negócio <span>começa aqui.</span>
+    </h2>
+
+    <div class="gold-line"></div>
+
+    <p>
+      Entre em contato para apresentar seu desafio e conhecer
+      as possibilidades de atuação da R.FACTOR.
+    </p>
+
+    <a class="button"
+       href="https://wa.me/5519994891180"
+       target="_blank"
+       rel="noopener">
+      Falar com a R.FACTOR pelo WhatsApp
+    </a>
+
+    <div class="contact-details">
+
+      <p>
+        WhatsApp:
+        <a href="https://wa.me/5519994891180"
+           target="_blank"
+           rel="noopener">
+          (19) 99489-1180
+        </a>
+      </p>
+
+      <p>
+        E-mail:
+        <a href="mailto:r.factor.solucoes@gmail.com">
+          r.factor.solucoes@gmail.com
+        </a>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer>
+  <div class="container">
+
+    <strong>R.FACTOR</strong>
+    — Gestão, Tecnologia e Desenvolvimento Empresarial
+
+    <br>
+
+    Estratégia que transforma negócios.
+
+    <br><br>
+
+    WhatsApp: (19) 99489-1180
+
+    <br>
+
+    E-mail: r.factor.solucoes@gmail.com
+
+    <br><br>
+
+    © 2026 R.FACTOR. Todos os direitos reservados.
+
+  </div>
+</footer>
+
+</body>
+</html>
