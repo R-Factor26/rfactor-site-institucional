@@ -82,16 +82,16 @@ nav a:hover {
 .hero {
   width: 100%;
   background: #00152D;
-  padding: 28px 0;
+  padding: 0;
   overflow: hidden;
   scroll-margin-top: 92px;
 }
 .hero-art {
   display: block;
-  width: 42%;
-  max-width: 520px;
+  width: 100%;
+  max-width: none;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 auto;
 }
 /* APRESENTAÇÃO */
@@ -408,10 +408,6 @@ footer strong {
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
-  .hero-art {
-    width: 55%;
-    max-width: 520px;
-  }
   .hero-message {
     padding: 55px 20px;
   }
@@ -426,11 +422,11 @@ footer strong {
     grid-template-columns: 1fr;
   }
   .hero {
-    padding: 18px 0;
+    padding: 0;
   }
   .hero-art {
-    width: 65%;
-    max-width: 420px;
+    width: 100%;
+    max-width: none;
   }
   .hero-message {
     padding: 45px 20px 55px;
